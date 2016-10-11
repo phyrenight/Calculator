@@ -15,11 +15,14 @@ body{
   background:#696969;
   width:90%;
   border:1px solid black;
-  padding:9px;
   margin:5% 4%;
 }
 
+#screen > p{
+  text-align:right;
+}
 #printScreen {
+  text-align:right;
 }
 
 #keys {
