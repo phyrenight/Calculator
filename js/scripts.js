@@ -121,6 +121,14 @@ function doTheMath(num1, num2, operation){
     console.log("what")
   }
 }
+
+
+function clearScreen(){
+  var printScreen = document.getElementById("printScreen");
+  var pastIput = document.getElementById("past");
+  printScreen.innerHTML = 0;
+  pastIput.innerHTML = 0;
+}
   /*var previousOp =" ";
   var str =  parentStr.innerHTML;
   var total = 0;
