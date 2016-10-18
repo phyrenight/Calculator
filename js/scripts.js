@@ -4,14 +4,9 @@ function number(num) {
   var total = "";
   if (parseInt(str) === 0) {
     total = String(num);
-    var removescreen = document.getElementById("screen")
-    removescreen.removeChild(screen)
-    screen = document.createElement("P");
-    var node = document.createTextNode(total)
-    screen.appendChild(node);
-    screen.setAttribute("id", "printScreen");
-    removescreen.appendChild(screen);
-  } else {
+    screen.innerHTML = total;
+  }
+  else {
     total = str + String(num);
     screen.innerHTML = total;
   }
@@ -24,18 +19,25 @@ function pastOperation(num) {
   var total = "";
   if (parseInt(str) === 0) {
     total = String(num);
-    var removescreen = document.getElementById("screen")
-    removescreen.removeChild(screen)
-    screen = document.createElement("P");
-    var node = document.createTextNode(total)
-    screen.appendChild(node);
-    screen.setAttribute("id", "past");
-    removescreen.appendChild(screen);
-  } else {
+    screen.innerHTML = total;
+  }
+  else {
     total = str + String(num);
     screen.innerHTML = total;
   }
 }
+
+function addDecimal(){
+  // add check to make sure current number has only on decimal
+  var printScreen = document.getElementById("printScreen");
+  var pastInputs = document.getElementById("past");
+  var currentNumber = printScreen.innerHTML + ".";
+  var currentInput = pastInputs.innerHTML + ".";
+  pastInputs.innerHTML = currentInput;
+  printSrceeninnerHtml = currentNumber;
+
+}
+
 function updateScreen(total){
   var screenAll = document.getElementById("past");
   var currentNum = document.getElementById("printScreen");
@@ -45,36 +47,19 @@ function updateScreen(total){
 }
 function operation(operate){
   var str ="";
+  var printScr = document.getElementById("printScreen");
   var screen = document.getElementById("past");
-  //console.log(screen.innerHTML)
   str += screen.innerHTML;
   var allinput = "";
-  console.log(str)
   if(str.length > 0){
     allinput = str + operate;
-   // console.log(allinput);
+    printScreen.innerHTML = 0;
     screen.innerHTML = allinput;
   }
-  /*if (currentOperator == "+") {
-    num1 = parseFloat(num1) + parseFloat(num2);
-    assignment(num1, operat);
-    currentOperator = operat;
-  } else if (currentOperator == "-") {
-    num1 = parseFloat(num1) - parseFloat(num2);
-    assignment(num1, operat);
-  } else if (currentOperator == "*") {
-    num1 = parseFloat(num1) * parseFloat(num2);
-    assignment(num1, operat);
-  } else if (currentOperator == "/") {
-    num1 = parseFloat(num1) / parseFloat(num2);
-    assignment(num1, operat);
-  }*/
 }
 function solve(op){ 
-  var scrn = document.getElementById("screen");
   var printScreen = document.getElementById("printScreen");
   var parentStr = document.getElementById("past");
-  console.log(parentStr);
   var str = parentStr.innerHTML;
   var operations = [];
   var numbers = [];
@@ -114,24 +99,9 @@ function solve(op){
       console.log(total);
       ++x;
     }
-    scrn.removeChild(printScreen);
-    printScreen = document.createElement("P");
-    var node = document.createTextNode(total);
-    printScreen.appendChild(node);
-    printScreen.setAttribute("id", "past");
-    scrn.appendChild(printScreen);
-    
-    scrn.removeChild(parentStr);
-    parentStr = document.createElement("P");
-    node = document.createTextNode(total);
-    parentStr.appendChild(node);
-    parentStr.setAttribute("id", "printScreen");
-    scrn.appendChild(parentStr);
-
+    printScreen.innerHTML = total;
     parentStr.innerHTML = total;
   }
-
-
 }
 function doTheMath(num1, num2, operation){
   console.log(operation);
