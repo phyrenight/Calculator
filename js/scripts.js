@@ -36,7 +36,13 @@ function pastOperation(num) {
     screen.innerHTML = total;
   }
 }
-
+function updateScreen(total){
+  var screenAll = document.getElementById("past");
+  var currentNum = document.getElementById("printScreen");
+  console.log(screenAll);
+  console.log(currentNum);
+  console.log(total);
+}
 function operation(operate){
   var str ="";
   var screen = document.getElementById("past");
@@ -64,21 +70,137 @@ function operation(operate){
     assignment(num1, operat);
   }*/
 }
-function solve(){
+function solve(op){ 
+  var scrn = document.getElementById("screen");
+  var printScreen = document.getElementById("printScreen");
   var parentStr = document.getElementById("past");
+  console.log(parentStr);
+  var str = parentStr.innerHTML;
+  var operations = [];
+  var numbers = [];
+  var start = 0;
+  var total = 0;
+  if(str.length > 2){
+    for(var i in str){
+      if(str[i] == "+"){
+        operations.push(str[i]);
+        numbers.push(str.slice(start, parseInt(i)));
+        start = (parseInt(i)+ 1);
+      }
+      else if(str[i] == "*"){
+        operations.push(str[i]);
+        numbers.push(str.slice(start, parseInt(i)));
+        start = (parseInt(i) + 1);
+      }
+      else if(str[i] == "-"){
+        operations.push(str[i]);
+        numbers.push(str.slice(start, parseInt(i)));
+        start = (parseInt(i) + 1);
+      }
+      else if(str[i] == "/"){
+        operations.push(str[i]);
+        numbers.push(str.slice(start, parseInt(i)));
+        start = (parseInt(i) + 1);
+      }
+    }
+    numbers.push(str.slice(start))
+    num1 = parseFloat(numbers[0]);
+    num2 = parseFloat(numbers[1]);
+    total = doTheMath(num1, num2, operations[0]);
+    console.log(total)
+    var x = 1;
+    for(var n  = 2; n < numbers.length; ++n){
+      total = doTheMath(parseInt(total), parseInt(numbers[n]), operations[x]);
+      console.log(total);
+      ++x;
+    }
+    scrn.removeChild(printScreen);
+    printScreen = document.createElement("P");
+    var node = document.createTextNode(total);
+    printScreen.appendChild(node);
+    printScreen.setAttribute("id", "past");
+    scrn.appendChild(printScreen);
+    
+    scrn.removeChild(parentStr);
+    parentStr = document.createElement("P");
+    node = document.createTextNode(total);
+    parentStr.appendChild(node);
+    parentStr.setAttribute("id", "printScreen");
+    scrn.appendChild(parentStr);
+
+    parentStr.innerHTML = total;
+  }
+
+
+}
+function doTheMath(num1, num2, operation){
+  console.log(operation);
+  if(operation == "+"){
+    return parseFloat(num1) + parseFloat(num2);
+  }
+  else if(operation == "-"){
+    return parseFloat(num1) - parseFloat(num2);
+  }
+  else if(operation == "*"){
+    return parseFloat(num1) * parseFloat(num2);
+  }
+  else if(operation == "/"){
+    return parseFloat(num1) / parseFloat(num2);
+  }
+  else{
+    console.log("what")
+  }
+}
+  /*var previousOp =" ";
   var str =  parentStr.innerHTML;
   var total = 0;
   var start = 0;
+  console.log("hello");
   for(var i in str){
-    if(str[i] ==  "+"){
-      console.log(str[i], i);
-      total += parseInt(str.slice(start,i));
-      console.log(total);
+    if(previousOp == " "){
+      total = parseInt(str.slice(start, i));
+      console.log(i);
+      previousOp = str[i];
+      console.log(previousOp);
       start = i;
     }
+    else{
+      if(previousOp ==  "+"){
+        console.log(str[i], i);
+        total += parseInt(str.slice(start, i));
+        console.log(total);
+        start = i +1;
+        previousOp = str[i];
+      }
+      else if(previousOp == "*"){
+        console.log(str.slice(start, i));
+        num = parseInt(str.slice(start, i));
+        total = total * num;
+        start = i+1;
+        previousOp = str[i]
+      }
+      else if(previousOp == "-"){
+        console.log(str.slice(start, i));
+        num = parseInt(str.slice(start, i));
+        total = total - num;
+        start = i+1;
+        previousOp = str[i];
+      }
+      else if(previousOp == "/"){
+        console.log(str.slice(start, i));
+        num = parseInt(str.slice(start, i));
+        total = total/num;
+        start = i+1;
+        previousOp = str[i];
+      }
+      else{
+
+      }
+    }
   }
+  updateScreen(total);
  // console.log(str);
-}
+}*/
 /*
 var num1 = "";
 var num2 = "";

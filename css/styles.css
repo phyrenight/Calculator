@@ -6,7 +6,7 @@ body{
   margin-top:3%;
   margin-left:30%;
   width:200px;
-  border:1px black solid;
+  border:1px #000000 solid;
   border-radius:5%;
   background:#ffebcd;
 }
@@ -14,7 +14,7 @@ body{
 #screen {
   background:#696969;
   width:90%;
-  border:1px solid black;
+  border:1px #000000 solid;
   margin:5% 4%;
 }
 
@@ -33,7 +33,7 @@ body{
 
 .key {
   background:#ff4500;
-  border:1px solid black;
+  border:1px #000000 solid;
   display:inline-block;
   margin-left:6%;
   margin-top:2%;
