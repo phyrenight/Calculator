@@ -1,16 +1,21 @@
 function number(num) {
   var screen = document.getElementById("printScreen");
   var str = screen.innerHTML;
-  var total = "";
-  if (parseInt(str) === 0) {
-    total = String(num);
-    screen.innerHTML = total;
+  if(str.length < 12){
+    var total = "";
+    if (parseInt(str) === 0) {
+      total = String(num);
+      screen.innerHTML = total;
+    }
+    else {
+      total = str + String(num);
+      screen.innerHTML = total;
+    }
+    pastOperation(num);
   }
-  else {
-    total = str + String(num);
-    screen.innerHTML = total;
+  else{
+    alert("Calculator only takes 12 numbers.")
   }
-  pastOperation(num);
 }
 
 function pastOperation(num) {
