@@ -2,15 +2,7 @@ function number(num) {
   var screen = document.getElementById("printScreen");
   var str = screen.innerHTML;
   if(str.length < 12){
-    var total = "";
-    if (parseInt(str) === 0) {
-      total = String(num);
-      screen.innerHTML = total;
-    }
-    else {
-      total = str + String(num);
-      screen.innerHTML = total;
-    }
+    screen.innerHTML = combineInputs(str, num);
     pastOperation(num);
   }
   else{
@@ -22,13 +14,19 @@ function pastOperation(num) {
   var screen = document.getElementById("past");
   var str = screen.innerHTML;
   var total = "";
-  if (parseInt(str) === 0) {
+  screen.innerHTML = combineInputs(str, num);
+}
+
+function combineInputs(str, num){
+  console.log(str);
+  var total = "";
+  if(parseInt(str) === 0) {
     total = String(num);
-    screen.innerHTML = total;
+    return total;
   }
-  else {
+  else{
     total = str + String(num);
-    screen.innerHTML = total;
+    return total;
   }
 }
 
