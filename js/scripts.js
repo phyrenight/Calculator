@@ -54,7 +54,7 @@ function addDecimal(){
     var currentInput = pastInputs.innerHTML + ".";
     pastInputs.innerHTML = currentInput;
     printScreen.innerHTML = currentNumber;
-}
+  }
 }
 /*
 function updateScreen(total){
@@ -83,8 +83,14 @@ function solve(op){
   var printScreen = document.getElementById("printScreen");
   var parentStr = document.getElementById("past");
   var str = parentStr.innerHTML;
-  parentStr.innerHTML = eval(str);
-  printScreen.innerHTML = eval(str);
+  if(isNumeric(str.slice(-1))){
+    parentStr.innerHTML = eval(str);
+    printScreen.innerHTML = eval(str);
+  }
+}
+
+function isNumeric(n){
+  return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
 function clearScreen(){
