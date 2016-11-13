@@ -34,7 +34,7 @@ function combineInputs(str, num){
     returns a string  
   */
   var total = "";
-  if(parseFloat(str) === 0) {
+  if(parseFloat(str) === 0 && str != "0.") {
     total = String(num);
     return total;
   }
