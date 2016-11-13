@@ -85,7 +85,9 @@ function solve(op){
   var total = 0;
   var num1 = 0;
   var num2 = 0;
-  if(str.length > 2){
+  parentStr.innerHTML = eval(str);
+  printScreen.innerHTML = eval(str);
+  /*if(str.length > 2){
     for(var i in str){
       if(str[i] == "+"){
         operations.push(str[i]);
@@ -120,10 +122,10 @@ function solve(op){
     }
     printScreen.innerHTML = total;
     parentStr.innerHTML = total;
-  }
+  }*/
 }
 
-function doTheMath(num1, num2, operation){
+/*function doTheMath(num1, num2, operation){
   console.log(operation);
   if(operation == "+"){
     return parseFloat(num1) + parseFloat(num2);
@@ -142,7 +144,7 @@ function doTheMath(num1, num2, operation){
     // need a better else
     console.log("what");
   }
-}
+}*/
 
 function clearScreen(){
   var printScreen = document.getElementById("printScreen");
