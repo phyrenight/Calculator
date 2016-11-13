@@ -2,6 +2,9 @@ body{
   background:#a9a9a9;
 }
 
+#past{
+  display:none;
+}
 #calculator {
   margin-top:3%;
   margin-left:30%;
