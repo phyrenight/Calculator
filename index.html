@@ -2,9 +2,11 @@
 <html lang='en'>
   <head>
     <title>Calculator</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/scripts.js"></script>
+    <meta charset="utf-8" />
+    <meta name="author" content="Marc Preston" />
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+
   </head>
   <body>
     <article>
@@ -15,78 +17,77 @@
         </div>
         <div id="keys">
           <div class="key">
-            <div class="clear" onclick="clearScreen()">AC</div>
+            <div id="clear">AC</div>
           </div>
           <div class="row">
             <div class="key">
-              <div id="seven" onclick="number(7)">7</div>
+              <div id="seven">7</div>
             </div>
           <!--seven-->
             <div class="key">
-              <div id="eight" onclick="number(8)">8</div>
+              <div id="eight">8</div>
             </div>
           <!-- eight-->
             <div class="key">
-              <div id="nine" onclick="number(9)">9</div>
+              <div id="nine">9</div>
             </div>
           <!--nine-->
             <div class="key division">
-              <div id="division" onclick="operation('/')">/</div>
+              <div id="division">/</div>
             </div>
           <!--division-->
           </div>
         <!--row2-->
           <div class="row">
             <div class="key">
-              <div id="four" onclick="number(4)">4</div>
+              <div id="four">4</div>
             </div>
           <!--four -->
             <div class="key">
-              <div id="five" onclick="number(5)">5</div>
+              <div id="five">5</div>
             </div>
             <div class="key">
-              <div id="six" onclick="number(6)">6</div>
+              <div id="six">6</div>
            </div>
             <div class="key multiply">
-              <div id="multiply" onclick="operation('*')">*</div>
+              <div id="multiply">*</div>
             </div>
           <!--multiply-->
           </div>
         <!--row3-->
           <div class="row">
             <div class="key">
-              <div id="one" onclick="number(1)">1</div>
+              <div id="one">1</div>
             </div>
             <div class="key">
-              <div id="two" onclick="number(2)">2</div>
+              <div id="two">2</div>
             </div>
             <div class="key">
-              <div id="three"
-           onclick="number(3)">3</div>
+              <div id="three">3</div>
             </div>
           <!--three-->
             <div class="key addition">
-              <div id="addition" onclick="operation('+')">+</div>
+              <div id="addition">+</div>
             </div>
           </div>
         <!--row4-->
           <div class="row">
             <div class="key">
-              <div id="zero"
-                 onclick="number(0)">0</div>
+              <div id="zero">0</div>
             </div>
             <div class="key decimal">
-              <div id="decimal" onclick="addDecimal()">.</div>
+              <div id="decimal">.</div>
             </div>
             <div class="key">
-              <div id="equals" onclick="solve('=')">=</div>
+              <div id="equals">=</div>
             </div>
             <div class="key subtract">
-              <div id="subtract" onclick="operation('-')">-</div>
+              <div id="subtract">-</div>
             </div>
           </div><!--row5-->
         </div>
       </div><!-- calculator -->
     </article>
+    <script src="js/scripts.js"></script>
   </body>
 </html>

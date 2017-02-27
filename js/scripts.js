@@ -1,6 +1,53 @@
+(function(){
+  "use strict";
+
+  var zero = document.getElementById("zero");
+  var one = document.getElementById("one");
+  var two = document.getElementById("two");
+  var three = document.getElementById("three");
+  var four = document.getElementById("four");
+  var five = document.getElementById("five");
+  var six = document.getElementById("six");
+  var seven = document.getElementById("seven");
+  var eight = document.getElementById("eight");
+  var nine = document.getElementById("nine");
+  
+  var clearScrn = document.getElementById("clear");
+  var division = document.getElementById("division");
+  var multiply = document.getElementById("multiply");
+  var addition = document.getElementById("addition");
+  var subract = document.getElementById("subtract");
+  var equals = document.getElementById("equals");
+  var decimal = document.getElementById("decimal");
+
+
+  clearScrn.addEventListener("click", clearScreen, false);
+  division.addEventListener("click", operation, false);
+  multiply.addEventListener("click", operation, false);
+  addition.addEventListener("click", operation, false);
+  subtract.addEventListener("click", operation, false);
+  equals.addEventListener("click", solve, false);
+  decimal.addEventListener("click", addDecimal, false)
+
+  zero.addEventListener("click", number, false);
+  one.addEventListener("click", number, false);
+  two.addEventListener("click", number, false);
+  three.addEventListener("click", number, false);
+  four.addEventListener("click", number, false);
+  five.addEventListener("click", number, false);
+  six.addEventListener("click", number, false);
+  seven.addEventListener("click", number, false);
+  eight.addEventListener("click", number, false);
+  nine.addEventListener("click", number, false);
+
+  function hello(num){
+    console.log(this.innerHTML)
+  }
+})();
+
 "use strict";
 
-function number(num) {
+function number() {
   /*
     args: num - a new number to add to the screen
     function: updates part the screen of the calculator
@@ -8,8 +55,8 @@ function number(num) {
   var screen = document.getElementById("printScreen");
   var str = screen.innerHTML;
   if(str.length < 12){
-    screen.innerHTML = combineInputs(str, num);
-    pastOperation(num);
+    screen.innerHTML = combineInputs(str, this.innerHTML);
+    pastOperation(this.innerHTML);
   }
   else{
     alert("Calculator only takes 12 numbers.");
@@ -65,21 +112,21 @@ function updateScreen(total){
   console.log(total);
 }*/
 
-function operation(operate){
+function operation(){
   var str ="";
   var printScr = document.getElementById("printScreen");
   var screen = document.getElementById("past");
   str += screen.innerHTML;
   var allinput = "";
   if(eval(str) !== 0){
-    allinput = str + operate;
+    allinput = str + this.innerHTML;
     printScr.innerHTML = 0;
     screen.innerHTML = allinput;
   }
 
 }
 
-function solve(op){ 
+function solve(){ 
   var printScreen = document.getElementById("printScreen");
   var parentStr = document.getElementById("past");
   var str = parentStr.innerHTML;
