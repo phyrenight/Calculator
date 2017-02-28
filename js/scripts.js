@@ -27,7 +27,7 @@
   addition.addEventListener("click", operation, false);
   subtract.addEventListener("click", operation, false);
   equals.addEventListener("click", solve, false);
-  decimal.addEventListener("click", addDecimal, false)
+  decimal.addEventListener("click", addDecimal, false);
 
   zero.addEventListener("click", number, false);
   one.addEventListener("click", number, false);
@@ -40,12 +40,6 @@
   eight.addEventListener("click", number, false);
   nine.addEventListener("click", number, false);
 
-  function hello(num){
-    console.log(this.innerHTML)
-  }
-})();
-
-"use strict";
 
 function number() {
   /*
@@ -146,3 +140,4 @@ function clearScreen(){
   printScreen.innerHTML = 0;
   pastIput.innerHTML = 0;
 }
+})();
