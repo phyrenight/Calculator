@@ -54,7 +54,8 @@ function number() {
   if(str.length < 12){
     equation = combineInputs(str, this.innerHTML);
     screen.innerHTML = equation;
-    currentEquation += equation;
+    currentEquation = equation;
+    console.log(currentEquation);
   }
   else{
     alert("Calculator only takes 12 numbers.");
@@ -67,14 +68,11 @@ function combineInputs(str, num){
     num: new number to be added to string
     returns a string  
   */
-  var total = "";    // think about removing
   if(parseFloat(str) === 0 && str != "0.") {
-    total = String(num);
-    return total;
+    return String(num);
   }
   else{
-    total = str + String(num);
-    return total;
+    return str + String(num);
   }
 }
 
