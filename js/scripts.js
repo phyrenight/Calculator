@@ -52,10 +52,8 @@ function number() {
   var screen = document.getElementById("printScreen");
   var str = screen.innerHTML;
   if(str.length < 12){
-    equation = combineInputs(str, this.innerHTML);
-    screen.innerHTML = equation;
-    currentEquation = equation;
-    console.log(currentEquation);
+    screen.innerHTML = combineInputs(str, this.innerHTML);
+    currentEquation += this.innerHTML
   }
   else{
     alert("Calculator only takes 12 numbers.");
@@ -89,9 +87,7 @@ function addDecimal(){
 }
 
 function operation(){
-  var str ="";
   var printScr = document.getElementById("printScreen");
-  str += screen.innerHTML;
   var allinput = "";
   if(eval(currentEquation.slice(-1)) !== 0){
     allinput = currentEquation + this.innerHTML;
@@ -102,11 +98,12 @@ function operation(){
 
 function solve(){ 
   var printScreen = document.getElementById("printScreen");
-  console.log(currentEquation);
-  if(isNumeric(currentEquation.slice(-1))){
-    currentEquation = eval(currentEquation);
-    console.log(currentEquation)
-    printScreen.innerHTML = eval(currentEquation);
+  if(currentEquation.length > 1){
+    if(isNumeric(currentEquation.slice(-1))){
+      currentEquation = eval(currentEquation);
+      console.log(currentEquation)
+      printScreen.innerHTML = eval(currentEquation);
+    }
   }
 }
 
